@@ -28,8 +28,15 @@ namespace Transportworld
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                var results = db.Drivers // Replace 'YourDbSet' with your actual DbSet (table)
-                    .Where(x => x.Name.Contains(searchQuery)) // Replace 'DriverName' with your actual column name
+                var results = db.Drivers // Querying Drivers table
+                    .Where(d => d.Name.Contains(searchQuery)) // Filter by driver name
+                    .Select(d => new
+                    {
+                        DriverName = d.Name,
+                        VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(), // Vehicle type
+                        RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(), // Vehicle registration number
+                        Route = d.Vehicles.Select(v => v.Route).FirstOrDefault() // Vehicle route
+                    })
                     .ToList();
 
                 if (results.Any())
@@ -47,8 +54,8 @@ namespace Transportworld
                 MessageBox.Show("Please enter a driver name.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-    
-            
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -72,18 +79,25 @@ namespace Transportworld
 
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
-                    var results = db.Drivers // ✅ Uses 'Drivers' as your DbSet (dbo.Drivers in SQL)
-                        .Where(x => x.Name.Contains(searchQuery)) // ✅ Uses 'Name' as the correct column
+                    var results = db.Drivers // Querying Drivers table
+                        .Where(d => d.Name.Contains(searchQuery)) // Filter by driver name
+                        .Select(d => new
+                        {
+                            DriverName = d.Name,
+                            VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(), // Vehicle type
+                            RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(), // Vehicle registration number
+                            Route = d.Vehicles.Select(v => v.Route).FirstOrDefault() // Vehicle route
+                        })
                         .ToList();
 
                     if (results.Any())
                     {
-                        dataGridView1.DataSource = results;
+                        dataGridView1.DataSource = results; // Show results in DataGridView
                     }
                     else
                     {
                         MessageBox.Show("No records found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = null; // Clear DataGridView if no results
                     }
                 }
                 else
