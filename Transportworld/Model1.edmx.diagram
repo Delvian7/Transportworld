@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="Dworld1DBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Dworld1DBModel.Vehicle" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="Dworld1DBModel.FK__Vehicles__Driver__3E52440B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Dworld1DBModel.User" Width="1.5" PointX="3" PointY="3.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TBdrivername = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TbTrn = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -42,29 +40,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(263, 37);
+            this.label1.Location = new System.Drawing.Point(484, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 42);
             this.label1.TabIndex = 0;
             this.label1.Text = "TransportWorld";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(257, 133);
+            this.label2.Location = new System.Drawing.Point(226, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Driver Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // TBdrivername
             // 
-            this.TBdrivername.Location = new System.Drawing.Point(251, 164);
+            this.TBdrivername.Location = new System.Drawing.Point(170, 172);
             this.TBdrivername.Name = "TBdrivername";
-            this.TBdrivername.Size = new System.Drawing.Size(224, 22);
+            this.TBdrivername.Size = new System.Drawing.Size(208, 22);
             this.TBdrivername.TabIndex = 2;
+            this.TBdrivername.TextChanged += new System.EventHandler(this.TBdrivername_TextChanged);
             this.TBdrivername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBdrivername_KeyPress);
             // 
             // Search
@@ -80,30 +77,14 @@
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(257, 221);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "TRN";
-            // 
-            // TbTrn
-            // 
-            this.TbTrn.Location = new System.Drawing.Point(251, 240);
-            this.TbTrn.Name = "TbTrn";
-            this.TbTrn.Size = new System.Drawing.Size(224, 22);
-            this.TbTrn.TabIndex = 5;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(128, 303);
+            this.dataGridView1.Location = new System.Drawing.Point(128, 242);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(942, 248);
+            this.dataGridView1.Size = new System.Drawing.Size(942, 309);
             this.dataGridView1.TabIndex = 6;
             // 
             // Form1
@@ -112,8 +93,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 585);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.TbTrn);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.TBdrivername);
             this.Controls.Add(this.label2);
@@ -133,8 +112,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TBdrivername;
         private System.Windows.Forms.Button Search;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TbTrn;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

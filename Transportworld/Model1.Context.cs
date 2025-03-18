@@ -10,7 +10,6 @@
 namespace Transportworld
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
@@ -29,6 +28,6 @@ namespace Transportworld
         public virtual DbSet<Driver> Drivers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Vehicle> Vehicles { get; set; }
-        public IEnumerable<object> Transport { get; internal set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
