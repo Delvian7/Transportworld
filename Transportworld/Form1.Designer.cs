@@ -52,7 +52,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 100);
+            this.label2.Location = new System.Drawing.Point(257, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 16);
             this.label2.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // TBdrivername
             // 
-            this.TBdrivername.Location = new System.Drawing.Point(77, 119);
+            this.TBdrivername.Location = new System.Drawing.Point(251, 164);
             this.TBdrivername.Name = "TBdrivername";
             this.TBdrivername.Size = new System.Drawing.Size(224, 22);
             this.TBdrivername.TabIndex = 2;
@@ -72,9 +72,9 @@
             this.Search.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.Search.FlatAppearance.BorderSize = 7;
             this.Search.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(466, 140);
+            this.Search.Location = new System.Drawing.Point(759, 153);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(116, 61);
+            this.Search.Size = new System.Drawing.Size(300, 61);
             this.Search.TabIndex = 3;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
@@ -83,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 162);
+            this.label3.Location = new System.Drawing.Point(257, 221);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 16);
             this.label3.TabIndex = 4;
@@ -91,7 +91,7 @@
             // 
             // TbTrn
             // 
-            this.TbTrn.Location = new System.Drawing.Point(77, 192);
+            this.TbTrn.Location = new System.Drawing.Point(251, 240);
             this.TbTrn.Name = "TbTrn";
             this.TbTrn.Size = new System.Drawing.Size(224, 22);
             this.TbTrn.TabIndex = 5;
@@ -99,18 +99,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(77, 237);
+            this.dataGridView1.Location = new System.Drawing.Point(128, 303);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(668, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(942, 248);
             this.dataGridView1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1166, 585);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.TbTrn);
             this.Controls.Add(this.label3);
