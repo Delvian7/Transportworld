@@ -36,6 +36,7 @@ namespace Transportworld
             this.Search = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.UpdButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,10 +53,10 @@ namespace Transportworld
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Matura MT Script Capitals", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(141, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 39);
+            this.label2.Size = new System.Drawing.Size(243, 45);
             this.label2.TabIndex = 1;
             this.label2.Text = "Driver Name";
             // 
@@ -73,7 +74,7 @@ namespace Transportworld
             this.Search.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.Search.FlatAppearance.BorderSize = 7;
             this.Search.Font = new System.Drawing.Font("Matura MT Script Capitals", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(770, 153);
+            this.Search.Location = new System.Drawing.Point(438, 133);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(300, 61);
             this.Search.TabIndex = 3;
@@ -101,11 +102,24 @@ namespace Transportworld
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
+            // UpdButton
+            // 
+            this.UpdButton.Font = new System.Drawing.Font("Matura MT Script Capitals", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdButton.Location = new System.Drawing.Point(786, 135);
+            this.UpdButton.Name = "UpdButton";
+            this.UpdButton.Size = new System.Drawing.Size(284, 59);
+            this.UpdButton.TabIndex = 8;
+            this.UpdButton.Text = "Update Directory";
+            this.UpdButton.UseVisualStyleBackColor = true;
+            
+            
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 585);
+            this.Controls.Add(this.UpdButton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.TBdrivername);
@@ -129,6 +143,7 @@ namespace Transportworld
         private System.Windows.Forms.Button Search;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button UpdButton;
 
         public EventHandler Form1_Load { get; private set; }
     }
