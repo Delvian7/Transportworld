@@ -12,6 +12,7 @@ namespace Transportworld
         private string _username;
         private string _role;
         private Form1 form1Instance = null; // Store reference to prevent duplicates
+        private Form2 form2Instance = null; // Store reference to Form2
 
         // Constructor with username and role passed from LoginForm
         public MDIParent1(string username, string role)
@@ -38,10 +39,31 @@ namespace Transportworld
             }
         }
 
+        // Show Form2 only if it hasn't been opened already
+        public void ShowForm2()
+        {
+            if (form2Instance == null || form2Instance.IsDisposed) // Check if already open
+            {
+                form2Instance = new Form2(); // Initialize Form2
+                form2Instance.MdiParent = this; // Set MDI parent to MDIParent1
+                form2Instance.Show(); // Show Form2
+            }
+            else
+            {
+                form2Instance.BringToFront(); // Bring existing instance to front
+            }
+        }
+
         // Form Load event to handle initialization
         private void MDIParent1_Load(object sender, EventArgs e)
         {
             ShowForm1(); // Ensure Form1 opens once
+        }
+
+        // Show Form2 when button is clicked
+        private void BtnOpenForm2_Click(object sender, EventArgs e)
+        {
+            ShowForm2(); // Open Form2 when the button is clicked
         }
 
         // Open File dialog logic
@@ -112,6 +134,11 @@ namespace Transportworld
         private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.ArrangeIcons);
+        }
+
+        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

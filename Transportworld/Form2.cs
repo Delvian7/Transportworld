@@ -21,7 +21,7 @@ namespace Transportworld
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // Optionally, load data when the form loads
+            // Optionally, you can load data when the form loads
         }
 
         private void BtSee_Click(object sender, EventArgs e)
