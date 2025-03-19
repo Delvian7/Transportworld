@@ -14,47 +14,23 @@ namespace Transportworld
     public partial class Form1 : Form
     {
         private Dworld1DBEntities2 db = new Dworld1DBEntities2();
-        private LoginForm _loginForm; // Login form instance
         private string _username;
         private string _role;
-        private string username;
-        private string role;
 
+        // Constructor without parameters (default constructor)
         public Form1()
         {
             InitializeComponent();
         }
 
+        // Constructor with username and role parameters
         public Form1(string username, string role)
         {
-            this.username = username;
-            this.role = role;
-        }
+            InitializeComponent();
+            _username = username;
+            _role = role;
 
-        // Show LoginForm when Form1 is initialized
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Create an instance of the LoginForm
-            _loginForm = new LoginForm();
-
-            // Show the login form as a dialog (blocks interaction with Form1 until closed)
-            _loginForm.ShowDialog();
-
-            // Check if the login was successful by checking user data passed from LoginForm
-            if (_loginForm.LoginSuccessful)
-            {
-                // If login is successful, Form1 can proceed to load
-                _username = _loginForm.Username; // Store the username passed from the login form
-                _role = _loginForm.Role; // Store the role passed from the login form
-
-                MessageBox.Show($"Login successful. Welcome, {_username}!", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                // If login failed, close Form1
-                MessageBox.Show("Login failed. Please check your credentials.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close(); // Close the application if login fails
-            }
+     
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -131,6 +107,53 @@ namespace Transportworld
 
         }
 
-        // Other event handlers for labels and text changes...
+        private void AddTabsDynamically()
+        {
+            // Create a new TabControl
+            TabControl tabControl = new TabControl();
+            tabControl.Dock = DockStyle.Fill; // Make it fill the form
+            tabControl.Name = "mainTabControl"; // Name it to avoid duplicate additions
+
+            // Create Tab Page 1 (Dashboard)
+            TabPage tab1 = new TabPage("Dashboard");
+            Label label1 = new Label()
+            {
+                Text = "Welcome to Dashboard",
+                Location = new System.Drawing.Point(20, 20),
+                AutoSize = true
+            };
+            tab1.Controls.Add(label1); // Add label to tab1
+
+            // Create Tab Page 2 (Settings)
+            TabPage tab2 = new TabPage("Settings");
+            Label label2 = new Label()
+            {
+                Text = "Settings Page",
+                Location = new System.Drawing.Point(20, 20),
+                AutoSize = true
+            };
+            tab2.Controls.Add(label2); // Add label to tab2
+
+            // Add tabs to TabControl
+            tabControl.TabPages.Add(tab1);
+            tabControl.TabPages.Add(tab2);
+
+            // Ensure the tabControl is not added multiple times
+            if (!this.Controls.ContainsKey("mainTabControl"))
+            {
+                this.Controls.Add(tabControl);
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void hiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

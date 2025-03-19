@@ -1,28 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using Transportworld;
 
 namespace Transportworld
 {
     public partial class LoginForm : Form
     {
-        private Dworld1DBEntities2 db = new Dworld1DBEntities2(); // Database context
-
-        // Property to indicate if login was successful
+        private Dworld1DBEntities2 db = new Dworld1DBEntities2();
         public bool LoginSuccessful { get; private set; }
-        public string Username { get; internal set; }
-        public string Role { get; internal set; }
+        public string Username { get; private set; }
+        public string Role { get; private set; }
 
-        // Constructor
         public LoginForm()
         {
             InitializeComponent();
@@ -47,15 +36,16 @@ namespace Transportworld
 
             if (user != null)
             {
-                // Set login successful flag and close the login form
+                // Set login successful flag
                 LoginSuccessful = true;
+                Username = user.Username; // Store username
+                Role = user.Role; // Store role
 
-                // Store user information to pass to Form1 (optional)
-                Form1 mainForm = new Form1(user.Username, user.Role);
-                this.Hide(); // Hide the LoginForm
-                mainForm.Show(); // Show Form1
+                // Open MDI Parent form after successful login
+                MDIParent1 mainForm = new MDIParent1(Username, Role); // Pass Username and Role
 
-                MessageBox.Show($"Welcome, {user.Username}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Hide(); // Hide LoginForm
+                mainForm.Show(); // Show the MDI Parent form
             }
             else
             {
@@ -65,7 +55,7 @@ namespace Transportworld
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // Add any initialization logic here if needed.
+            // Additional initialization logic can go here if needed.
         }
     }
 }
