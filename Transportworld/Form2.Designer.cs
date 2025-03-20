@@ -45,7 +45,7 @@
             this.label1.Location = new System.Drawing.Point(427, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 39);
+            this.label1.Size = new System.Drawing.Size(294, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "TransportWorld";
             // 
@@ -55,7 +55,6 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(320, 28);
             this.dateTimePicker1.TabIndex = 1;
-            
             // 
             // btdelete
             // 
@@ -76,7 +75,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(773, 296);
             this.dataGridView1.TabIndex = 3;
-            
             // 
             // btedit
             // 
@@ -104,7 +102,7 @@
             this.Btsee.TabIndex = 6;
             this.Btsee.Text = "See All";
             this.Btsee.UseVisualStyleBackColor = true;
-            
+            this.Btsee.Click += new System.EventHandler(this.Btsee_Click_1);
             // 
             // Form2
             // 
@@ -119,7 +117,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Manage Drivers listing";
             this.Load += new System.EventHandler(this.Form2_Load);

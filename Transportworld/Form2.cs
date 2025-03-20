@@ -24,13 +24,37 @@ namespace Transportworld
             // Optionally, you can load data when the form loads
         }
 
-        private void BtSee_Click(object sender, EventArgs e)
-        {
-            // Fetch records from the database
-            var records = dbContext.Users.ToList(); // Assuming you're showing "Users" table, adjust the table name accordingly
 
-            // Bind the records to the DataGridView
-            dataGridView1.DataSource = records;
+        private void Btsee_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var records = dbContext.Drivers
+                    .Select(d => new
+                    {
+                        DriverName = d.Name,
+                        VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(),
+                        RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(),
+                        Route = d.Vehicles.Select(v => v.Route).FirstOrDefault()
+                    })
+                    .ToList();
+
+                if (records.Any())
+                {
+                    dataGridView1.DataSource = records; // Show data in DataGridView
+                }
+                else
+                {
+                    MessageBox.Show("No records found.", "Search Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataGridView1.DataSource = null; // Clear DataGridView if no results
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        
     }
 }

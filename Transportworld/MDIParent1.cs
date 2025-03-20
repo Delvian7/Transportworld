@@ -140,5 +140,50 @@ namespace Transportworld
         {
 
         }
+
+        private void manageDriverListingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of Form2
+            Form2 form2Instance = new Form2();
+
+            // Set Form2 as a child of MDIParent1
+            form2Instance.MdiParent = this;
+
+            // Show Form2 inside the MDI container
+            form2Instance.Show();
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void form1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (form1Instance == null || form1Instance.IsDisposed)
+            {
+                form1Instance = new Form1(_username, _role);
+                form1Instance.MdiParent = this;
+                form1Instance.Show();
+            }
+            else
+            {
+                form1Instance.BringToFront();
+            }
+        }
+
+        private void manageDriversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (form1Instance == null || form1Instance.IsDisposed)
+            {
+                form1Instance = new Form1(_username, _role);  // Open Form1 with username and role passed
+                form1Instance.MdiParent = this;  // Set MDI parent to this (MDIParent1)
+                form1Instance.Show();  // Show Form1
+            }
+            else
+            {
+                form1Instance.BringToFront();  // Bring Form1 to front if it's already open
+            }
+        }
     }
 }
