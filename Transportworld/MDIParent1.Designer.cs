@@ -85,13 +85,16 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.manageDriverListingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.serachDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.seachDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageDriversListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -104,7 +107,7 @@
             this.toolsMenu,
             this.windowsMenu,
             this.helpMenu});
-            this.menuStrip.Location = new System.Drawing.Point(0, 52);
+            this.menuStrip.Location = new System.Drawing.Point(0, 28);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(843, 28);
@@ -442,7 +445,7 @@
             this.printPreviewToolStripButton,
             this.toolStripSeparator2,
             this.helpToolStripButton});
-            this.toolStrip.Location = new System.Drawing.Point(0, 80);
+            this.toolStrip.Location = new System.Drawing.Point(0, 56);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(843, 27);
             this.toolStrip.TabIndex = 1;
@@ -534,13 +537,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageDriverListingsToolStripMenuItem,
-            this.serachDriversToolStripMenuItem});
+            this.searchDriversToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 24);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(843, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(299, 28);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -551,12 +555,11 @@
             this.manageDriverListingsToolStripMenuItem.Text = "Manage Driver Listings";
             this.manageDriverListingsToolStripMenuItem.Click += new System.EventHandler(this.manageDriverListingsToolStripMenuItem_Click);
             // 
-            // serachDriversToolStripMenuItem
+            // searchDriversToolStripMenuItem
             // 
-            this.serachDriversToolStripMenuItem.Name = "serachDriversToolStripMenuItem";
-            this.serachDriversToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
-            this.serachDriversToolStripMenuItem.Text = "Serach Drivers";
-            
+            this.searchDriversToolStripMenuItem.Name = "searchDriversToolStripMenuItem";
+            this.searchDriversToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.searchDriversToolStripMenuItem.Text = "Search Drivers";
             // 
             // contextMenuStrip1
             // 
@@ -566,12 +569,30 @@
             // 
             // menuStrip2
             // 
+            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seachDriversToolStripMenuItem,
+            this.manageDriversListingToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(843, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(843, 28);
             this.menuStrip2.TabIndex = 6;
             this.menuStrip2.Text = "menuStrip2";
+            // 
+            // seachDriversToolStripMenuItem
+            // 
+            this.seachDriversToolStripMenuItem.Name = "seachDriversToolStripMenuItem";
+            this.seachDriversToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.seachDriversToolStripMenuItem.Text = "Seach Drivers";
+            this.seachDriversToolStripMenuItem.Click += new System.EventHandler(this.seachDriversToolStripMenuItem_Click);
+            // 
+            // manageDriversListingToolStripMenuItem
+            // 
+            this.manageDriversListingToolStripMenuItem.Name = "manageDriversListingToolStripMenuItem";
+            this.manageDriversListingToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
+            this.manageDriversListingToolStripMenuItem.Text = "Manage Drivers Listing";
+            this.manageDriversListingToolStripMenuItem.Click += new System.EventHandler(this.manageDriversListingToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -597,6 +618,8 @@
             this.statusStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -659,8 +682,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem manageDriverListingsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem serachDriversToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchDriversToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem seachDriversToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageDriversListingToolStripMenuItem;
     }
 }
 

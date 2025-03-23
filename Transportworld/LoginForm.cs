@@ -19,8 +19,8 @@ namespace Transportworld
 
         private void BtLogin_Click(object sender, EventArgs e)
         {
-            string username = TBusername.Text.Trim(); // Get username from TextBox
-            string password = TBPassword.Text.Trim(); // Get password from TextBox
+            string username = TBusername.Text.Trim(); 
+            string password = TBPassword.Text.Trim(); 
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -28,24 +28,24 @@ namespace Transportworld
                 return;
             }
 
-            // Check if user exists in the database
+            
             var user = db.Users
                 .Where(u => u.Username == username && u.Password == password)
-                .Select(u => new { u.Username, u.Role }) // Select Username & Role
+                .Select(u => new { u.Username, u.Role }) 
                 .FirstOrDefault();
 
             if (user != null)
             {
-                // Set login successful flag
+                
                 LoginSuccessful = true;
-                Username = user.Username; // Store username
-                Role = user.Role; // Store role
+                Username = user.Username; 
+                Role = user.Role; 
 
-                // Open MDI Parent form after successful login
-                MDIParent1 mainForm = new MDIParent1(Username, Role); // Pass Username and Role
+                
+                MDIParent1 mainForm = new MDIParent1(Username, Role); 
 
-                this.Hide(); // Hide LoginForm
-                mainForm.Show(); // Show the MDI Parent form
+                this.Hide(); 
+                mainForm.Show(); 
             }
             else
             {
@@ -55,7 +55,7 @@ namespace Transportworld
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            // Additional initialization logic can go here if needed.
+            
         }
     }
 }

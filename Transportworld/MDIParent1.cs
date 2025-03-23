@@ -171,19 +171,23 @@ namespace Transportworld
                 form1Instance.BringToFront();
             }
         }
+        
 
-        private void manageDriversToolStripMenuItem_Click(object sender, EventArgs e)
+        private void seachDriversToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (form1Instance == null || form1Instance.IsDisposed)
-            {
-                form1Instance = new Form1(_username, _role);  // Open Form1 with username and role passed
-                form1Instance.MdiParent = this;  // Set MDI parent to this (MDIParent1)
-                form1Instance.Show();  // Show Form1
-            }
-            else
-            {
-                form1Instance.BringToFront();  // Bring Form1 to front if it's already open
-            }
+            Form1 form1Instance = new Form1(_username, _role);  // Open Form1 with username and role passed
+            form1Instance.MdiParent = this;  // Set MDI parent to this (MDIParent1)
+            form1Instance.Show();
+        }
+
+        private void manageDriversListingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.MdiParent = this;
+            form2.Show();
+
+
         }
     }
+    
 }
