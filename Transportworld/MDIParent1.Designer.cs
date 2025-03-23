@@ -90,6 +90,7 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.seachDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDriversListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateDriverListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -573,7 +574,8 @@
             this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.seachDriversToolStripMenuItem,
-            this.manageDriversListingToolStripMenuItem});
+            this.manageDriversListingToolStripMenuItem,
+            this.updateDriverListingToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(843, 28);
@@ -591,8 +593,15 @@
             // 
             this.manageDriversListingToolStripMenuItem.Name = "manageDriversListingToolStripMenuItem";
             this.manageDriversListingToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
-            this.manageDriversListingToolStripMenuItem.Text = "Manage Drivers Listing";
+            this.manageDriversListingToolStripMenuItem.Text = "View All Drivers Listing";
             this.manageDriversListingToolStripMenuItem.Click += new System.EventHandler(this.manageDriversListingToolStripMenuItem_Click);
+            // 
+            // updateDriverListingToolStripMenuItem
+            // 
+            this.updateDriverListingToolStripMenuItem.Name = "updateDriverListingToolStripMenuItem";
+            this.updateDriverListingToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
+            this.updateDriverListingToolStripMenuItem.Text = "Update Driver Listing";
+            this.updateDriverListingToolStripMenuItem.Click += new System.EventHandler(this.updateDriverListingToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -686,6 +695,7 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem seachDriversToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageDriversListingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateDriverListingToolStripMenuItem;
     }
 }
 
