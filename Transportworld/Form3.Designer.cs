@@ -31,17 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.BtnDrivers = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.VehicleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistrationNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dworld1DBDataSet = new Transportworld.Dworld1DBDataSet();
             this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.driversTableAdapter = new Transportworld.Dworld1DBDataSetTableAdapters.DriversTableAdapter();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vehiclesTableAdapter = new Transportworld.Dworld1DBDataSetTableAdapters.VehiclesTableAdapter();
             this.fKVehiclesDriver3E52440BBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.VehicleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegistrationNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dworld1DBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.btbEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
@@ -53,9 +55,11 @@
             // BtnDrivers
             // 
             this.BtnDrivers.AutoSize = true;
-            this.BtnDrivers.Location = new System.Drawing.Point(529, 39);
+            this.BtnDrivers.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnDrivers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDrivers.Location = new System.Drawing.Point(554, 112);
             this.BtnDrivers.Name = "BtnDrivers";
-            this.BtnDrivers.Size = new System.Drawing.Size(98, 16);
+            this.BtnDrivers.Size = new System.Drawing.Size(181, 29);
             this.BtnDrivers.TabIndex = 0;
             this.BtnDrivers.Text = "Update Drivers";
             this.BtnDrivers.Click += new System.EventHandler(this.label1_Click);
@@ -68,41 +72,13 @@
             this.VehicleType,
             this.RegistrationNumber,
             this.Route});
-            this.dataGridView1.Location = new System.Drawing.Point(89, 92);
+            this.dataGridView1.Location = new System.Drawing.Point(198, 167);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1082, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(987, 426);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dworld1DBDataSet
-            // 
-            this.dworld1DBDataSet.DataSetName = "Dworld1DBDataSet";
-            this.dworld1DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // driversBindingSource
-            // 
-            this.driversBindingSource.DataMember = "Drivers";
-            this.driversBindingSource.DataSource = this.dworld1DBDataSet;
-            // 
-            // driversTableAdapter
-            // 
-            this.driversTableAdapter.ClearBeforeFill = true;
-            // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataMember = "Vehicles";
-            this.vehiclesBindingSource.DataSource = this.dworld1DBDataSet;
-            // 
-            // vehiclesTableAdapter
-            // 
-            this.vehiclesTableAdapter.ClearBeforeFill = true;
-            // 
-            // fKVehiclesDriver3E52440BBindingSource
-            // 
-            this.fKVehiclesDriver3E52440BBindingSource.DataMember = "FK__Vehicles__Driver__3E52440B";
-            this.fKVehiclesDriver3E52440BBindingSource.DataSource = this.driversBindingSource;
             // 
             // VehicleID
             // 
@@ -137,16 +113,67 @@
             this.Route.Name = "Route";
             this.Route.Width = 125;
             // 
+            // dworld1DBDataSet
+            // 
+            this.dworld1DBDataSet.DataSetName = "Dworld1DBDataSet";
+            this.dworld1DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // driversBindingSource
+            // 
+            this.driversBindingSource.DataMember = "Drivers";
+            this.driversBindingSource.DataSource = this.dworld1DBDataSet;
+            // 
+            // driversTableAdapter
+            // 
+            this.driversTableAdapter.ClearBeforeFill = true;
+            // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataMember = "Vehicles";
+            this.vehiclesBindingSource.DataSource = this.dworld1DBDataSet;
+            // 
+            // vehiclesTableAdapter
+            // 
+            this.vehiclesTableAdapter.ClearBeforeFill = true;
+            // 
+            // fKVehiclesDriver3E52440BBindingSource
+            // 
+            this.fKVehiclesDriver3E52440BBindingSource.DataMember = "FK__Vehicles__Driver__3E52440B";
+            this.fKVehiclesDriver3E52440BBindingSource.DataSource = this.driversBindingSource;
+            // 
             // dworld1DBDataSetBindingSource
             // 
             this.dworld1DBDataSetBindingSource.DataSource = this.dworld1DBDataSet;
             this.dworld1DBDataSetBindingSource.Position = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Impact", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(501, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(293, 52);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "TransportWorld";
+            // 
+            // btbEdit
+            // 
+            this.btbEdit.FlatAppearance.BorderSize = 7;
+            this.btbEdit.Location = new System.Drawing.Point(29, 215);
+            this.btbEdit.Name = "btbEdit";
+            this.btbEdit.Size = new System.Drawing.Size(120, 52);
+            this.btbEdit.TabIndex = 3;
+            this.btbEdit.Text = "Update Row";
+            this.btbEdit.UseVisualStyleBackColor = true;
+            this.btbEdit.Click += new System.EventHandler(this.btbEdit_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1272, 555);
+            this.ClientSize = new System.Drawing.Size(1272, 567);
+            this.Controls.Add(this.btbEdit);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.BtnDrivers);
             this.Name = "Form3";
@@ -178,5 +205,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Route;
         private System.Windows.Forms.BindingSource fKVehiclesDriver3E52440BBindingSource;
         private System.Windows.Forms.BindingSource dworld1DBDataSetBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btbEdit;
     }
 }

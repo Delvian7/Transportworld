@@ -67,5 +67,26 @@ namespace Transportworld
         {
 
         }
+
+        private void btbEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string driverName = dataGridView1.SelectedRows[0].Cells["DriverName"].Value.ToString();
+                var driver = db.Drivers.FirstOrDefault(d => d.Name == driverName);
+
+                if (driver != null)
+                {
+                    driver.Name = "Edited Name"; // Example edit
+                    db.SaveChanges();
+                    LoadDriverData();
+                    MessageBox.Show("Driver record updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
