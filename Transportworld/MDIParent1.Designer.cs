@@ -91,6 +91,7 @@
             this.seachDriversToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDriversListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateDriverListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -575,7 +576,8 @@
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.seachDriversToolStripMenuItem,
             this.manageDriversListingToolStripMenuItem,
-            this.updateDriverListingToolStripMenuItem});
+            this.updateDriverListingToolStripMenuItem,
+            this.vehiclesToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Size = new System.Drawing.Size(843, 28);
@@ -602,6 +604,13 @@
             this.updateDriverListingToolStripMenuItem.Size = new System.Drawing.Size(163, 24);
             this.updateDriverListingToolStripMenuItem.Text = "Update Driver Listing";
             this.updateDriverListingToolStripMenuItem.Click += new System.EventHandler(this.updateDriverListingToolStripMenuItem_Click);
+            // 
+            // vehiclesToolStripMenuItem
+            // 
+            this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.vehiclesToolStripMenuItem.Text = "Vehicles";
+            this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -696,6 +705,7 @@
         private System.Windows.Forms.ToolStripMenuItem seachDriversToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageDriversListingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDriverListingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
     }
 }
 

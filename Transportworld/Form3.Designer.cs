@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.BtnDrivers = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.VehicleID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VehicleType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RegistrationNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Route = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dworld1DBDataSet = new Transportworld.Dworld1DBDataSet();
             this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.driversTableAdapter = new Transportworld.Dworld1DBDataSetTableAdapters.DriversTableAdapter();
@@ -45,6 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btbEdit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btAdd = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.driverIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenseNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tRNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
@@ -67,12 +69,16 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.VehicleID,
-            this.VehicleType,
-            this.RegistrationNumber,
-            this.Route});
+            this.driverIDDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.licenseNumberDataGridViewTextBoxColumn,
+            this.tRNDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.driversBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(198, 167);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -80,39 +86,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(987, 426);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // VehicleID
-            // 
-            this.VehicleID.DataPropertyName = "VehicleID";
-            this.VehicleID.HeaderText = "VehicleID";
-            this.VehicleID.MinimumWidth = 6;
-            this.VehicleID.Name = "VehicleID";
-            this.VehicleID.ReadOnly = true;
-            this.VehicleID.Width = 125;
-            // 
-            // VehicleType
-            // 
-            this.VehicleType.DataPropertyName = "VehicleType";
-            this.VehicleType.HeaderText = "VehicleType";
-            this.VehicleType.MinimumWidth = 6;
-            this.VehicleType.Name = "VehicleType";
-            this.VehicleType.Width = 125;
-            // 
-            // RegistrationNumber
-            // 
-            this.RegistrationNumber.DataPropertyName = "RegistrationNumber";
-            this.RegistrationNumber.HeaderText = "RegistrationNumber";
-            this.RegistrationNumber.MinimumWidth = 6;
-            this.RegistrationNumber.Name = "RegistrationNumber";
-            this.RegistrationNumber.Width = 125;
-            // 
-            // Route
-            // 
-            this.Route.DataPropertyName = "Route";
-            this.Route.HeaderText = "Route";
-            this.Route.MinimumWidth = 6;
-            this.Route.Name = "Route";
-            this.Route.Width = 125;
             // 
             // dworld1DBDataSet
             // 
@@ -156,6 +129,7 @@
             this.label1.Size = new System.Drawing.Size(293, 52);
             this.label1.TabIndex = 2;
             this.label1.Text = "TransportWorld";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // btbEdit
             // 
@@ -174,15 +148,66 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 46);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Edit Driver";
+            this.button1.Text = "Edit";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btAdd
+            // 
+            this.btAdd.Location = new System.Drawing.Point(12, 368);
+            this.btAdd.Name = "btAdd";
+            this.btAdd.Size = new System.Drawing.Size(137, 37);
+            this.btAdd.TabIndex = 5;
+            this.btAdd.Text = "ADD";
+            this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 429);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(114, 41);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Delete";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // driverIDDataGridViewTextBoxColumn
+            // 
+            this.driverIDDataGridViewTextBoxColumn.DataPropertyName = "DriverID";
+            this.driverIDDataGridViewTextBoxColumn.HeaderText = "DriverID";
+            this.driverIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.driverIDDataGridViewTextBoxColumn.Name = "driverIDDataGridViewTextBoxColumn";
+            this.driverIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // licenseNumberDataGridViewTextBoxColumn
+            // 
+            this.licenseNumberDataGridViewTextBoxColumn.DataPropertyName = "LicenseNumber";
+            this.licenseNumberDataGridViewTextBoxColumn.HeaderText = "LicenseNumber";
+            this.licenseNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.licenseNumberDataGridViewTextBoxColumn.Name = "licenseNumberDataGridViewTextBoxColumn";
+            // 
+            // tRNDataGridViewTextBoxColumn
+            // 
+            this.tRNDataGridViewTextBoxColumn.DataPropertyName = "TRN";
+            this.tRNDataGridViewTextBoxColumn.HeaderText = "TRN";
+            this.tRNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tRNDataGridViewTextBoxColumn.Name = "tRNDataGridViewTextBoxColumn";
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1272, 567);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btAdd);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btbEdit);
             this.Controls.Add(this.label1);
@@ -211,14 +236,16 @@
         private Dworld1DBDataSetTableAdapters.DriversTableAdapter driversTableAdapter;
         private System.Windows.Forms.BindingSource vehiclesBindingSource;
         private Dworld1DBDataSetTableAdapters.VehiclesTableAdapter vehiclesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VehicleType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RegistrationNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Route;
         private System.Windows.Forms.BindingSource fKVehiclesDriver3E52440BBindingSource;
         private System.Windows.Forms.BindingSource dworld1DBDataSetBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btbEdit;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn driverIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn licenseNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tRNDataGridViewTextBoxColumn;
     }
 }

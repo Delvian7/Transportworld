@@ -40,10 +40,10 @@ namespace Transportworld
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 var results = db.Drivers // Querying Drivers table
-                    .Where(d => d.Name.Contains(searchQuery)) // Filter by driver name
+                    .Where(d => d.Name.ToString().Contains(searchQuery)) // Filter by driver name
                     .Select(d => new
                     {
-                        DriverName = d.Name,
+                        DriverName = d.Name.ToString(),
                         VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(), // Vehicle type
                         RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(), // Vehicle registration number
                         Route = d.Vehicles.Select(v => v.Route).FirstOrDefault() // Vehicle route
@@ -75,10 +75,10 @@ namespace Transportworld
                 if (!string.IsNullOrEmpty(searchQuery))
                 {
                     var results = db.Drivers // Querying Drivers table
-                        .Where(d => d.Name.Contains(searchQuery)) // Filter by driver name
+                        .Where(d => d.Name.ToString().Contains(searchQuery)) // Filter by driver name
                         .Select(d => new
                         {
-                            DriverName = d.Name,
+                            DriverName = d.Name.ToString(),
                             VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(), // Vehicle type
                             RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(), // Vehicle registration number
                             Route = d.Vehicles.Select(v => v.Route).FirstOrDefault() // Vehicle route

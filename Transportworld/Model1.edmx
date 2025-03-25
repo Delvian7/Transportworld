@@ -12,7 +12,7 @@
           <Property Name="DriverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="LicenseNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="TRN" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="TRN" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -78,7 +78,7 @@
           <Property Name="DriverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TRN" Type="String" MaxLength="11" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TRN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Vehicles" Relationship="Self.FK__Vehicles__Driver__3E52440B" FromRole="Drivers" ToRole="Vehicles" />
         </EntityType>
         <EntityType Name="sysdiagram">

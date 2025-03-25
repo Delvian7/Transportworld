@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Transportworld
 {
     public partial class Form3 : Form
     {
         private Dworld1DBEntities2 db = new Dworld1DBEntities2();
+        
         public Form3()
         {
             InitializeComponent();
@@ -38,7 +40,8 @@ namespace Transportworld
                     DriverName = d.Name,
                     VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(),
                     RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(),
-                    Route = d.Vehicles.Select(v => v.Route).FirstOrDefault()
+                    Route = d.Vehicles.Select(v => v.Route).FirstOrDefault(),
+                    Trn= d.TRN
                 })
                 .ToList();
 
@@ -56,6 +59,7 @@ namespace Transportworld
         private void label1_Click(object sender, EventArgs e)
         {
             LoadDriverData();
+            Refresh();
         }
 
         private void dataGridViewDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -73,7 +77,7 @@ namespace Transportworld
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 string driverName = dataGridView1.SelectedRows[0].Cells["DriverName"].Value.ToString();
-                var driver = db.Drivers.FirstOrDefault(d => d.Name == driverName);
+                var driver = db.Drivers.FirstOrDefault(d => (string)d.Name == driverName);
 
                 if (driver != null)
                 {
@@ -91,10 +95,29 @@ namespace Transportworld
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            var id = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
+            var driver = db.Drivers.FirstOrDefault(d => d.TRN == id); // Changed to use TRN instead of DriverID
+            var form4 = new Form4();
+            form4.MdiParent = this.MdiParent;
             form4.Show();
-            
+        }
 
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.MdiParent = this.MdiParent;
+            form4.Show();
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 }
