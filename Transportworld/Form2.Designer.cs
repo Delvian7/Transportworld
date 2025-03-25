@@ -37,9 +37,10 @@
             // btseeall
             // 
             this.btseeall.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btseeall.Location = new System.Drawing.Point(487, 140);
+            this.btseeall.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btseeall.Location = new System.Drawing.Point(411, 139);
             this.btseeall.Name = "btseeall";
-            this.btseeall.Size = new System.Drawing.Size(250, 54);
+            this.btseeall.Size = new System.Drawing.Size(415, 76);
             this.btseeall.TabIndex = 0;
             this.btseeall.Text = "See All Drivers";
             this.btseeall.UseVisualStyleBackColor = false;
@@ -47,6 +48,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 251);
             this.dataGridView1.Name = "dataGridView1";
@@ -59,7 +61,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(465, 56);
+            this.label1.Location = new System.Drawing.Point(479, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(293, 52);
             this.label1.TabIndex = 3;

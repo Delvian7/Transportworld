@@ -48,6 +48,7 @@ namespace Transportworld
             this.label1.Size = new System.Drawing.Size(293, 52);
             this.label1.TabIndex = 0;
             this.label1.Text = "TransportWorld";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -63,9 +64,9 @@ namespace Transportworld
             // 
             this.TBdrivername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TBdrivername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBdrivername.Location = new System.Drawing.Point(421, 164);
+            this.TBdrivername.Location = new System.Drawing.Point(342, 164);
             this.TBdrivername.Name = "TBdrivername";
-            this.TBdrivername.Size = new System.Drawing.Size(239, 36);
+            this.TBdrivername.Size = new System.Drawing.Size(387, 36);
             this.TBdrivername.TabIndex = 2;
             this.TBdrivername.TextChanged += new System.EventHandler(this.TBdrivername_TextChanged);
             this.TBdrivername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBdrivername_KeyPress);
@@ -119,6 +120,7 @@ namespace Transportworld
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

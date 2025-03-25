@@ -177,6 +177,7 @@ namespace Transportworld
         {
             Form1 form1Instance = new Form1(_username, _role);  // Open Form1 with username and role passed
             form1Instance.MdiParent = this;  // Set MDI parent to this (MDIParent1)
+           
             form1Instance.Show();
         }
 
@@ -198,6 +199,9 @@ namespace Transportworld
 
         private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form5 form5 = new Form5();
+            form5.MdiParent = this;
+            form5.Show();
 
         }
     }
