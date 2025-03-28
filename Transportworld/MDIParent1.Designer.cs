@@ -92,6 +92,7 @@
             this.manageDriversListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateDriverListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -612,11 +613,19 @@
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(544, 60);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 8;
+            // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 558);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -706,6 +715,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageDriversListingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateDriverListingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

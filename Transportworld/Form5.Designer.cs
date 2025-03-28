@@ -32,17 +32,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dworld1DBDataSet = new Transportworld.Dworld1DBDataSet();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiclesTableAdapter = new Transportworld.Dworld1DBDataSetTableAdapters.VehiclesTableAdapter();
             this.vehicleIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driverIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vehicleTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registrationNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.routeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dworld1DBDataSet = new Transportworld.Dworld1DBDataSet();
+            this.vehiclesTableAdapter = new Transportworld.Dworld1DBDataSetTableAdapters.VehiclesTableAdapter();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -84,20 +85,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1012, 473);
             this.dataGridView1.TabIndex = 5;
             // 
-            // dworld1DBDataSet
-            // 
-            this.dworld1DBDataSet.DataSetName = "Dworld1DBDataSet";
-            this.dworld1DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataMember = "Vehicles";
-            this.vehiclesBindingSource.DataSource = this.dworld1DBDataSet;
-            // 
-            // vehiclesTableAdapter
-            // 
-            this.vehiclesTableAdapter.ClearBeforeFill = true;
-            // 
             // vehicleIDDataGridViewTextBoxColumn
             // 
             this.vehicleIDDataGridViewTextBoxColumn.DataPropertyName = "VehicleID";
@@ -134,11 +121,33 @@
             this.routeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.routeDataGridViewTextBoxColumn.Name = "routeDataGridViewTextBoxColumn";
             // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataMember = "Vehicles";
+            this.vehiclesBindingSource.DataSource = this.dworld1DBDataSet;
+            // 
+            // dworld1DBDataSet
+            // 
+            this.dworld1DBDataSet.DataSetName = "Dworld1DBDataSet";
+            this.dworld1DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // vehiclesTableAdapter
+            // 
+            this.vehiclesTableAdapter.ClearBeforeFill = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(903, 52);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(246, 22);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1250, 623);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -146,8 +155,8 @@
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dworld1DBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +175,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn vehicleTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn registrationNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn routeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

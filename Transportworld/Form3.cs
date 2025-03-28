@@ -14,12 +14,12 @@ namespace Transportworld
     public partial class Form3 : Form
     {
         private Dworld1DBEntities2 db = new Dworld1DBEntities2();
-        
+
         public Form3()
         {
             InitializeComponent();
         }
-       
+
 
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace Transportworld
 
         }
 
-      
+
 
         private void LoadDriverData()
         {
@@ -41,7 +41,7 @@ namespace Transportworld
                     VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(),
                     RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(),
                     Route = d.Vehicles.Select(v => v.Route).FirstOrDefault(),
-                    Trn= d.TRN
+                    Trn = d.TRN
                 })
                 .ToList();
 
@@ -58,8 +58,7 @@ namespace Transportworld
 
         private void label1_Click(object sender, EventArgs e)
         {
-            LoadDriverData();
-            Refresh();
+
         }
 
         private void dataGridViewDrivers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -95,11 +94,10 @@ namespace Transportworld
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var id = dataGridView1.SelectedRows[0].Cells["Name"].Value.ToString();
-            var driver = db.Drivers.FirstOrDefault(d => d.TRN == id); // Changed to use TRN instead of DriverID
-            var form4 = new Form4();
-            form4.MdiParent = this.MdiParent;
-            form4.Show();
+            Editform editform = new Editform();
+            editform.MdiParent = this.MdiParent;
+            editform.Show();
+
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -114,10 +112,39 @@ namespace Transportworld
             form4.Show();
 
         }
+        
+        
+        
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int driverID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["DriverID"].Value);
+
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this driver?",
+                                                      "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    var driver = db.Drivers.FirstOrDefault(d => d.DriverID == driverID);
+
+                    if (driver != null)
+                    {
+                        db.Drivers.Remove(driver);
+                        db.SaveChanges();
+                        MessageBox.Show("Driver deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDriverData(); // Refresh DataGridView
+                    }
+                    else
+                    {
+                        MessageBox.Show("Driver not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+
+                }
+            }
         }
     }
 }
