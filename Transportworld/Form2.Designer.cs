@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.btseeall = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,11 +40,11 @@
             // 
             this.btseeall.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btseeall.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btseeall.Location = new System.Drawing.Point(411, 139);
+            this.btseeall.Location = new System.Drawing.Point(2, 123);
             this.btseeall.Name = "btseeall";
             this.btseeall.Size = new System.Drawing.Size(415, 76);
             this.btseeall.TabIndex = 0;
-            this.btseeall.Text = "See All Drivers";
+            this.btseeall.Text = "Click to see all Drivers";
             this.btseeall.UseVisualStyleBackColor = false;
             this.btseeall.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -55,23 +56,23 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1189, 433);
+            this.dataGridView1.Size = new System.Drawing.Size(1815, 816);
             this.dataGridView1.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(479, 61);
+            this.label1.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 52);
+            this.label1.Size = new System.Drawing.Size(353, 63);
             this.label1.TabIndex = 3;
             this.label1.Text = "TransportWorld";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1001, 86);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1001, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 4;
@@ -80,7 +81,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 615);
+            this.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1839, 931);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);

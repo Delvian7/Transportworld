@@ -37,6 +37,7 @@ namespace Transportworld
             var drivers = db.Drivers
                 .Select(d => new
                 {
+                    DriverID = d.DriverID,
                     DriverName = d.Name,
                     VehicleType = d.Vehicles.Select(v => v.VehicleType).FirstOrDefault(),
                     RegistrationNumber = d.Vehicles.Select(v => v.RegistrationNumber).FirstOrDefault(),
@@ -45,16 +46,14 @@ namespace Transportworld
                 })
                 .ToList();
 
-            if (drivers.Any())
-            {
-                dataGridView1.DataSource = drivers;
-            }
-            else
-            {
-                MessageBox.Show("No driver records found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dataGridView1.DataSource = null;
-            }
+            dataGridView1.AutoGenerateColumns = true;
+            dataGridView1.DataSource = drivers;
+
+            // Hide DriverID from the UI, but keep it in the grid data
+            if (dataGridView1.Columns.Contains("DriverID"))
+                dataGridView1.Columns["DriverID"].Visible = false;
         }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -112,6 +111,7 @@ namespace Transportworld
             form4.Show();
 
         }
+
         
         
         
@@ -121,30 +121,29 @@ namespace Transportworld
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int driverID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["DriverID"].Value);
+                DataGridViewRow row = dataGridView1.SelectedRows[0];
 
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this driver?",
-                                                      "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+              
 
-                if (result == DialogResult.Yes)
+                int driverID = Convert.ToInt32(row.Cells["DriverID"].Value);
+                var driver = db.Drivers.FirstOrDefault(d => d.DriverID == driverID);
+
+                if (driver != null)
                 {
-                    var driver = db.Drivers.FirstOrDefault(d => d.DriverID == driverID);
-
-                    if (driver != null)
-                    {
-                        db.Drivers.Remove(driver);
-                        db.SaveChanges();
-                        MessageBox.Show("Driver deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDriverData(); // Refresh DataGridView
-                    }
-                    else
-                    {
-                        MessageBox.Show("Driver not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-
+                    db.Drivers.Remove(driver);
+                    db.SaveChanges();
+                    LoadDriverData();
+                    MessageBox.Show("Driver deleted successfully.");
                 }
             }
+            else
+            {
+                MessageBox.Show("Please select a row first.");
+            }
+
+
+
+
         }
     }
 }

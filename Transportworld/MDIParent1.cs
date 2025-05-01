@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using Transportworld;
 
 namespace Transportworld
 {
@@ -11,23 +7,35 @@ namespace Transportworld
     {
         private string _username;
         private string _role;
-        private Form1 form1Instance = null; // Store reference to prevent duplicates
-        private Form2 form2Instance = null; // Store reference to Form2
 
-        // Constructor with username and role passed from LoginForm
+        // Form instances (singleton-style)
+        private Form1 form1Instance = null;
+        private Form2 form2Instance = null;
+        private Form3 form3Instance = null;
+        private Form5 form5Instance = null;
+        private Delete deleteFormInstance = null;
+        private Update updateFormInstance = null;
+        private CreateVehicle createVehicleFormInstance = null;
+
         public MDIParent1(string username, string role)
         {
             InitializeComponent();
             _username = username;
             _role = role;
-            this.Text = $"Transport World - Welcome, {_username}"; // Show username in title
-            this.IsMdiContainer = true;  // Set the form as MDI container
+            this.Text = $"Transport World - Welcome, {_username}";
+            this.IsMdiContainer = true;
         }
 
-        // Show Form1 only if it hasn't been opened already
-        public void ShowForm1()
+        private void MDIParent1_Load(object sender, EventArgs e)
         {
-            if (form1Instance == null || form1Instance.IsDisposed) // Check if already open
+            ShowForm1();
+        }
+
+        // === Form Opening Methods ===
+
+        private void ShowForm1()
+        {
+            if (form1Instance == null || form1Instance.IsDisposed)
             {
                 form1Instance = new Form1(_username, _role);
                 form1Instance.MdiParent = this;
@@ -35,38 +43,148 @@ namespace Transportworld
             }
             else
             {
-                form1Instance.BringToFront(); // Bring existing instance to front
+                form1Instance.BringToFront();
             }
         }
 
-        // Show Form2 only if it hasn't been opened already
-        public void ShowForm2()
+        private void ShowForm2()
         {
-            if (form2Instance == null || form2Instance.IsDisposed) // Check if already open
+            if (form2Instance == null || form2Instance.IsDisposed)
             {
-                form2Instance = new Form2(); // Initialize Form2
-                form2Instance.MdiParent = this; // Set MDI parent to MDIParent1
-                form2Instance.Show(); // Show Form2
+                form2Instance = new Form2();
+                form2Instance.MdiParent = this;
+                form2Instance.Show();
             }
             else
             {
-                form2Instance.BringToFront(); // Bring existing instance to front
+                form2Instance.BringToFront();
             }
         }
 
-        // Form Load event to handle initialization
-        private void MDIParent1_Load(object sender, EventArgs e)
+        private void ShowForm3()
         {
-            ShowForm1(); // Ensure Form1 opens once
+            if (form3Instance == null || form3Instance.IsDisposed)
+            {
+                form3Instance = new Form3();
+                form3Instance.MdiParent = this;
+                form3Instance.Show();
+            }
+            else
+            {
+                form3Instance.BringToFront();
+            }
         }
 
-        // Show Form2 when button is clicked
-        private void BtnOpenForm2_Click(object sender, EventArgs e)
+        private void ShowForm5()
         {
-            ShowForm2(); // Open Form2 when the button is clicked
+            if (form5Instance == null || form5Instance.IsDisposed)
+            {
+                form5Instance = new Form5();
+                form5Instance.MdiParent = this;
+                form5Instance.Show();
+            }
+            else
+            {
+                form5Instance.BringToFront();
+            }
         }
 
-        // Open File dialog logic
+        private void ShowDeleteForm()
+        {
+            if (deleteFormInstance == null || deleteFormInstance.IsDisposed)
+            {
+                deleteFormInstance = new Delete();
+                deleteFormInstance.MdiParent = this;
+                deleteFormInstance.Show();
+            }
+            else
+            {
+                deleteFormInstance.BringToFront();
+            }
+        }
+
+        private void ShowUpdateForm()
+        {
+            if (updateFormInstance == null || updateFormInstance.IsDisposed)
+            {
+                updateFormInstance = new Update();
+                updateFormInstance.MdiParent = this;
+                updateFormInstance.Show();
+            }
+            else
+            {
+                updateFormInstance.BringToFront();
+            }
+        }
+
+        private void ShowCreateVehicleForm()
+        {
+            if (createVehicleFormInstance == null || createVehicleFormInstance.IsDisposed)
+            {
+                createVehicleFormInstance = new CreateVehicle();
+                createVehicleFormInstance.MdiParent = this;
+                createVehicleFormInstance.Show();
+            }
+            else
+            {
+                createVehicleFormInstance.BringToFront();
+            }
+        }
+
+        // === Menu / Button Handlers calling the above ===
+
+        private void form1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm1();
+        }
+
+        private void seachDriversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm1();
+        }
+
+        private void manageDriverListingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm2();
+        }
+
+        private void manageDriversListingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm2();
+        }
+
+        private void updateDriverListingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm3();
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm5();
+        }
+
+        private void deleteDriverRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDeleteForm();
+        }
+
+        private void updateDriverRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowUpdateForm();
+        }
+
+        private void vehicleRecordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowCreateVehicleForm();
+        }
+
+        // === Default Windows Forms Actions (unchanged) ===
+
+        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void OpenFile(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -80,7 +198,6 @@ namespace Transportworld
             }
         }
 
-        // Save File dialog logic
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -94,116 +211,34 @@ namespace Transportworld
             }
         }
 
-        // Close application logic
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        // Toggle toolbar visibility
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStrip.Visible = toolBarToolStripMenuItem.Checked;
         }
 
-        // Toggle status bar visibility
         private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             statusStrip.Visible = statusBarToolStripMenuItem.Checked;
         }
 
-        // Cascade child forms
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.Cascade);
         }
 
-        // Tile child forms vertically
         private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.TileVertical);
         }
 
-        // Tile child forms horizontally
         private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.TileHorizontal);
         }
 
-        // Arrange icons
         private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LayoutMdi(MdiLayout.ArrangeIcons);
         }
-
-        private void toolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void manageDriverListingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Create a new instance of Form2
-            Form2 form2Instance = new Form2();
-
-            // Set Form2 as a child of MDIParent1
-            form2Instance.MdiParent = this;
-
-            // Show Form2 inside the MDI container
-            form2Instance.Show();
-        }
-
-        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void form1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (form1Instance == null || form1Instance.IsDisposed)
-            {
-                form1Instance = new Form1(_username, _role);
-                form1Instance.MdiParent = this;
-                form1Instance.Show();
-            }
-            else
-            {
-                form1Instance.BringToFront();
-            }
-        }
-        
-
-        private void seachDriversToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form1 form1Instance = new Form1(_username, _role);  // Open Form1 with username and role passed
-            form1Instance.MdiParent = this;  // Set MDI parent to this (MDIParent1)
-           
-            form1Instance.Show();
-        }
-
-        private void manageDriversListingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form2 form2 = new Form2();
-            form2.MdiParent = this;
-            form2.Show();
-
-
-        }
-
-        private void updateDriverListingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form3 form3 = new Form3();
-            form3.MdiParent = this;
-            form3.Show();
-        }
-
-        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form5 form5 = new Form5();
-            form5.MdiParent = this;
-            form5.Show();
-
-        }
     }
-    
 }
